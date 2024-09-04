@@ -1,10 +1,11 @@
 package com.unlam.marvel.data
 
+import com.unlam.marvel.data.repository.ICharactersRepository
 import com.unlam.marvel.domain.Character
 import java.security.MessageDigest
 import java.security.NoSuchAlgorithmException
 
-class CharactersService(private val charactersRepository: CharactersRepository) {
+class CharactersService(private val charactersRepository: ICharactersRepository) {
 
     suspend fun getCharacters(): List<Character> {
         val timestamp = System.currentTimeMillis()

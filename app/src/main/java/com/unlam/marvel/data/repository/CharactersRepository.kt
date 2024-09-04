@@ -1,9 +1,11 @@
-package com.unlam.marvel.data
+package com.unlam.marvel.data.repository
 
+import com.unlam.marvel.data.CharactersResponse
+import com.unlam.marvel.data.MarvelCharactersClient
 import com.unlam.marvel.domain.Character
 
-class RetrofitCharactersRepository(private val apiClient: MarvelCharactersClient) :
-    CharactersRepository {
+class CharactersRepository(private val apiClient: MarvelCharactersClient) :
+    ICharactersRepository {
 
     override suspend fun getCharacters(timestamp: Long, md5: String): List<Character> {
         return apiClient.getAllCharacters(timestamp, md5).toModel()

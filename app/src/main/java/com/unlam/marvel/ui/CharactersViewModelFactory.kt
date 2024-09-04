@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.unlam.marvel.data.MarvelCharactersClient
 import com.unlam.marvel.data.PublicKeyInterceptor
-import com.unlam.marvel.data.RetrofitCharactersRepository
+import com.unlam.marvel.data.repository.CharactersRepository
 import com.unlam.marvel.data.CharactersService
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -24,7 +24,7 @@ class CharactersViewModelFactory : ViewModelProvider.Factory {
 
         val apiClient = retrofit.create(MarvelCharactersClient::class.java)
 
-        val charactersApi = RetrofitCharactersRepository(apiClient)
+        val charactersApi = CharactersRepository(apiClient)
         val charactersService = CharactersService(charactersApi)
         return CharactersViewModel(charactersService) as T
     }

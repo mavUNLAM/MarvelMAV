@@ -1,7 +1,7 @@
-package com.unlam.marvel.data
+package com.unlam.marvel.data.repository
 
 import com.unlam.marvel.domain.Character
 
-interface CharactersRepository {
+interface ICharactersRepository {
     suspend fun getCharacters(timestamp: Long, md5: String): List<Character>
 }
