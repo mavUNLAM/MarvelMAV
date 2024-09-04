@@ -5,6 +5,7 @@ import retrofit2.http.GET
 import retrofit2.http.Headers
 import retrofit2.http.Query
 
+// se usa en retrofit.create(IMarvelCharactersClient::class.java)
 interface IMarvelCharactersClient {
 
     @GET("v1/public/characters")
