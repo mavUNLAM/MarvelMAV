@@ -1,10 +1,10 @@
 package com.unlam.marvel.data.repository
 
-import com.unlam.marvel.data.network.CharactersResponse
-import com.unlam.marvel.data.network.MarvelCharactersClient
+import com.unlam.marvel.data.network.model.CharactersResponse
+import com.unlam.marvel.data.network.IMarvelCharactersClient
 import com.unlam.marvel.domain.Character
 
-class CharactersRepository(private val apiClient: MarvelCharactersClient) :
+class CharactersRepository(private val apiClient: IMarvelCharactersClient) :
     ICharactersRepository {
 
     override suspend fun getCharacters(timestamp: Long, md5: String): List<Character> {

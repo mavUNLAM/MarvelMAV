@@ -2,7 +2,7 @@ package com.unlam.marvel.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.unlam.marvel.data.network.MarvelCharactersClient
+import com.unlam.marvel.data.network.IMarvelCharactersClient
 import com.unlam.marvel.data.network.PublicKeyInterceptor
 import com.unlam.marvel.data.repository.CharactersRepository
 import com.unlam.marvel.data.repository.CharactersService
@@ -22,7 +22,7 @@ class CharactersViewModelFactory : ViewModelProvider.Factory {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
-        val apiClient = retrofit.create(MarvelCharactersClient::class.java)
+        val apiClient = retrofit.create(IMarvelCharactersClient::class.java)
 
         val charactersApi = CharactersRepository(apiClient)
         val charactersService = CharactersService(charactersApi)
