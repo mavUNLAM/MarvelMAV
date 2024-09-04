@@ -1,4 +1,4 @@
-package com.unlam.marvel
+package com.unlam.marvel.domain
 
 data class Character(
     val id: Long,

@@ -1,5 +1,6 @@
-package com.unlam.marvel
+package com.unlam.marvel.data
 
+import com.unlam.marvel.domain.Character
 import java.security.MessageDigest
 import java.security.NoSuchAlgorithmException
 

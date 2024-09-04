@@ -1,4 +1,4 @@
-package com.unlam.marvel
+package com.unlam.marvel.data
 
 import com.google.gson.annotations.SerializedName
 import retrofit2.http.GET
