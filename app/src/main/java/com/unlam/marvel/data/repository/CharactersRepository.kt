@@ -1,7 +1,7 @@
 package com.unlam.marvel.data.repository
 
-import com.unlam.marvel.data.CharactersResponse
-import com.unlam.marvel.data.MarvelCharactersClient
+import com.unlam.marvel.data.network.CharactersResponse
+import com.unlam.marvel.data.network.MarvelCharactersClient
 import com.unlam.marvel.domain.Character
 
 class CharactersRepository(private val apiClient: MarvelCharactersClient) :

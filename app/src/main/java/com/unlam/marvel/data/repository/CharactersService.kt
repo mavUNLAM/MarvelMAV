@@ -1,6 +1,7 @@
-package com.unlam.marvel.data
+package com.unlam.marvel.data.repository
 
-import com.unlam.marvel.data.repository.ICharactersRepository
+import com.unlam.marvel.data.PRIVATE_KEY
+import com.unlam.marvel.data.PUBLIC_KEY
 import com.unlam.marvel.domain.Character
 import java.security.MessageDigest
 import java.security.NoSuchAlgorithmException

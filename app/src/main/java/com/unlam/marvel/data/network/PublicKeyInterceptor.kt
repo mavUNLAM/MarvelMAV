@@ -1,5 +1,6 @@
-package com.unlam.marvel.data
+package com.unlam.marvel.data.network
 
+import com.unlam.marvel.data.PUBLIC_KEY
 import okhttp3.Interceptor
 import okhttp3.Response
 
