@@ -3,12 +3,17 @@ package com.unlam.marvel.data.repository
 import com.unlam.marvel.data.network.model.HeroResponse
 import com.unlam.marvel.data.network.IMarvelHeroClient
 import com.unlam.marvel.domain.Hero
+import kotlinx.coroutines.flow.Flow
 
 class HeroRepository(private val apiClient: IMarvelHeroClient) :
     IHeroRepository {
 
     override suspend fun getCharacters(timestamp: Long, md5: String): List<Hero> {
         return apiClient.getAllCharacters(timestamp, md5).toModel()
+    }
+
+    override fun getCharactersFlow(timestamp: Long, md5: String): Flow<List<Hero>> {
+        TODO("Not yet implemented")
     }
 
     private fun HeroResponse.toModel(): List<Hero> {

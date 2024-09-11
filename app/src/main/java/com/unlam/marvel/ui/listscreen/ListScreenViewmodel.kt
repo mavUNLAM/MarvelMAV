@@ -1,15 +1,19 @@
 package com.unlam.marvel.ui.listscreen
 
 import androidx.lifecycle.ViewModel
+import com.unlam.marvel.data.repository.IHeroRepository
+import com.unlam.marvel.domain.Hero
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 
-class ListScreenViewmodel: ViewModel() {
-    private val _state = MutableStateFlow(ListScreenState())
-    val state = _state.asStateFlow()
+class ListScreenViewmodel(val characterRepository: IHeroRepository): ViewModel() {
+    private val _screenState = MutableStateFlow(ListScreenState.Loading)
+    val screenState = _screenState.asStateFlow()
 
 }
 
-class ListScreenState {
-
+sealed class ListScreenState {
+    data object Loading : ListScreenState()
+    data object Error : ListScreenState()
+    class ShowCharacters(val list: List<Hero>) : ListScreenState()
 }
