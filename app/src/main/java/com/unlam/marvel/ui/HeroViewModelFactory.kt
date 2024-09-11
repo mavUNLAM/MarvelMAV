@@ -2,15 +2,15 @@ package com.unlam.marvel.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.unlam.marvel.data.network.IMarvelCharactersClient
+import com.unlam.marvel.data.network.IMarvelHeroClient
 import com.unlam.marvel.data.network.PublicKeyInterceptor
-import com.unlam.marvel.data.repository.CharactersRepository
-import com.unlam.marvel.data.repository.CharactersService
+import com.unlam.marvel.data.repository.HeroRepository
+import com.unlam.marvel.data.repository.HeroService
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class CharactersViewModelFactory : ViewModelProvider.Factory {
+class HeroViewModelFactory : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         val okHttpClient = OkHttpClient.Builder()
             .addInterceptor(PublicKeyInterceptor())
@@ -22,10 +22,10 @@ class CharactersViewModelFactory : ViewModelProvider.Factory {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
-        val apiClient = retrofit.create(IMarvelCharactersClient::class.java)
+        val apiClient = retrofit.create(IMarvelHeroClient::class.java)
 
-        val charactersApi = CharactersRepository(apiClient)
-        val charactersService = CharactersService(charactersApi)
-        return CharactersViewModel(charactersService) as T
+        val charactersApi = HeroRepository(apiClient)
+        val heroService = HeroService(charactersApi)
+        return HeroViewModel(heroService) as T
     }
 }

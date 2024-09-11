@@ -7,18 +7,18 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.unlam.marvel.data.CharactersAdapter
+import com.unlam.marvel.data.HeroAdapter
 import com.unlam.marvel.databinding.ActivityMainBinding
-import com.unlam.marvel.domain.Character
-import com.unlam.marvel.ui.CharactersViewModel
-import com.unlam.marvel.ui.CharactersViewModelFactory
+import com.unlam.marvel.domain.Hero
+import com.unlam.marvel.ui.HeroViewModel
+import com.unlam.marvel.ui.HeroViewModelFactory
 import com.unlam.marvel.ui.ScreenState
 import com.unlam.marvel.ui.VerticalSpaceItemDecoration
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var charactersAdapter: CharactersAdapter
+    private lateinit var heroAdapter: HeroAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,17 +27,17 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         // Setup del listado
-        charactersAdapter = CharactersAdapter()
+        heroAdapter = HeroAdapter()
         val verticalLayoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         with(binding.charactersList) {
-            this.adapter = charactersAdapter
+            this.adapter = heroAdapter
             this.layoutManager = verticalLayoutManager
             this.addItemDecoration(VerticalSpaceItemDecoration(16))
         }
 
         // Listen to Retrofit response
         val viewModel =
-            ViewModelProvider(this, CharactersViewModelFactory())[CharactersViewModel::class.java]
+            ViewModelProvider(this, HeroViewModelFactory())[HeroViewModel::class.java]
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 viewModel.screenState.collect {
@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun showCharacters(list: List<Character>) {
-        charactersAdapter.submitList(list)
+    private fun showCharacters(list: List<Hero>) {
+        heroAdapter.submitList(list)
     }
 }

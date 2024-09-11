@@ -2,13 +2,13 @@ package com.unlam.marvel.data.repository
 
 import com.unlam.marvel.data.PRIVATE_KEY
 import com.unlam.marvel.data.PUBLIC_KEY
-import com.unlam.marvel.domain.Character
+import com.unlam.marvel.domain.Hero
 import java.security.MessageDigest
 import java.security.NoSuchAlgorithmException
 
-class CharactersService(private val charactersRepository: ICharactersRepository) {
+class HeroService(private val charactersRepository: IHeroRepository) {
 
-    suspend fun getCharacters(): List<Character> {
+    suspend fun getCharacters(): List<Hero> {
         val timestamp = System.currentTimeMillis()
         val characters = charactersRepository.getCharacters(
             timestamp,
@@ -40,7 +40,7 @@ class CharactersService(private val charactersRepository: ICharactersRepository)
         return ""
     }
 
-    private fun sort(characters: List<Character>): List<Character> {
+    private fun sort(characters: List<Hero>): List<Hero> {
         return characters.sortedWith(CharacterComparator())
     }
 
@@ -50,8 +50,8 @@ class CharactersService(private val charactersRepository: ICharactersRepository)
      * - Los que tienen descripción a su vez se ordenan ascendentemente por su id.
      * - Los que NO tienen descripción se ordenan descendentemente por su id.
      */
-    private class CharacterComparator : Comparator<Character> {
-        override fun compare(c1: Character, c2: Character): Int {
+    private class CharacterComparator : Comparator<Hero> {
+        override fun compare(c1: Hero, c2: Hero): Int {
             if (c1.description.isEmpty() && c2.description.isEmpty()) {
                 return c2.id.compareTo(c1.id)
             }
