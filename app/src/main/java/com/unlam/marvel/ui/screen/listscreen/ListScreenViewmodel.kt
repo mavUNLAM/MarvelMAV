@@ -1,4 +1,4 @@
-package com.unlam.marvel.ui.listscreen
+package com.unlam.marvel.ui.screen.listscreen
 
 import androidx.lifecycle.ViewModel
 import com.unlam.marvel.data.repository.IHeroRepository
