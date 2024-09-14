@@ -21,16 +21,9 @@ import com.unlam.marvel.domain.Hero
 @Composable
 fun CharacterList(
     modifier: Modifier = Modifier,
-    list: List<Hero> = emptyList()
+    list: List<Hero> = Hero.exampleList(),
+    onHeroClick: (Int) -> Unit = {}
 ) {
-    val myList = (0..25).map {
-        Hero(
-            id = it.toLong(),
-            name = "Héroe $it",
-            description = "Descripción del héroe $it",
-            thumbnailUrl = ""
-        )
-    }
     LazyColumn(
         modifier = modifier,
         state = rememberLazyListState(),
@@ -43,7 +36,7 @@ fun CharacterList(
                 text = "Lista de héroes"
             )
         }
-        items(myList) {
+        items(list) {
             HeroItem(it)
         }
     }
