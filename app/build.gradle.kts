@@ -62,6 +62,16 @@ dependencies {
     implementation(libs.androidx.material3.android)
     implementation(libs.androidx.ui.tooling.preview.android)
     implementation(libs.androidx.ui.text.google.fonts)
+    implementation(libs.ktor.client.android)
+    implementation(libs.bundles.ktor)
+    implementation(libs.ktor.client.content.negotiation)
+    implementation(libs.kotlin.serialization)
+    implementation(libs.media.kamel)
+    implementation(libs.koin.android)
+    // implementation(libs.koin.compose) koin-compose = {module="io.insert-koin:koin-compose", version.ref = "koin"}
+    // implementation(libs.koin.compose.viewmodel) koin-compose-viewmodel = {module="io.insert-koin:koin-compose-viewmodel", version.ref = "koin"}
+    // implementation(libs.koin.compose.viewmodel.navigation) koin-compose-viewmodel-navigation = {module="io.insert-koin:koin-compose-viewmodel-navigation", version.ref = "koin"}
+    implementation(libs.paging.compose.common)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

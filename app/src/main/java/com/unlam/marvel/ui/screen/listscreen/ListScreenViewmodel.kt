@@ -6,7 +6,9 @@ import com.unlam.marvel.domain.Hero
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 
-class ListScreenViewmodel(val characterRepository: IHeroRepository): ViewModel() {
+class ListScreenViewmodel(
+    private val characterRepository: IHeroRepository
+): ViewModel() {
     private val _screenState = MutableStateFlow(ListScreenState.Loading)
     val screenState = _screenState.asStateFlow()
 
