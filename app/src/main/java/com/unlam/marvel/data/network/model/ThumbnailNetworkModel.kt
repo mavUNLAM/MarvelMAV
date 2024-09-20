@@ -2,6 +2,7 @@ package com.unlam.marvel.data.network.model
 
 import com.google.gson.annotations.SerializedName
 import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
 data class ThumbnailNetworkModel(
     @SerializedName("path") val path: String,
@@ -12,6 +13,7 @@ data class ThumbnailNetworkModel(
     }
 }
 
+@Serializable
 data class ThumbnailKtorModel(
     @SerialName("path") val path: String,
     @SerialName("extension") val extension: String
