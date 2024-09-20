@@ -17,6 +17,12 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
     }
+    versionCatalogs {
+        create("kotlincrypto") {
+            // https://github.com/KotlinCrypto/version-catalog/blob/master/gradle/kotlincrypto.versions.toml
+            from("org.kotlincrypto:version-catalog:0.5.3")
+        }
+    }
 }
 
 rootProject.name = "Marvel"
