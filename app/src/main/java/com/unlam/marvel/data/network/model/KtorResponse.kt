@@ -6,7 +6,7 @@ import kotlinx.serialization.Serializable
 /*
 ktorResponse
 ----ktorData
--------ktorHeroList
+-------ktorCharacterList
 ----------ktorThumbnail
  */
 @Serializable
