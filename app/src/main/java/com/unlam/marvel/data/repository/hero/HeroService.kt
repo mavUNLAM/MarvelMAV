@@ -1,4 +1,4 @@
-package com.unlam.marvel.data.repository
+package com.unlam.marvel.data.repository.hero
 
 import com.unlam.marvel.data.PRIVATE_KEY
 import com.unlam.marvel.data.PUBLIC_KEY

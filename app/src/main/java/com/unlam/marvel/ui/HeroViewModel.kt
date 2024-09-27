@@ -3,7 +3,7 @@ package com.unlam.marvel.ui
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.unlam.marvel.data.repository.HeroService
+import com.unlam.marvel.data.repository.hero.HeroService
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow

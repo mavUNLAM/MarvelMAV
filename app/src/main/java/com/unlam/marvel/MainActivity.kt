@@ -47,6 +47,7 @@ class MainActivity : AppCompatActivity() {
                     when (it) {
                         ScreenState.Loading -> showLoading()
                         is ScreenState.ShowCharacters -> showCharacters(it.list)
+                        else -> {}
                     }
                 }
             }
