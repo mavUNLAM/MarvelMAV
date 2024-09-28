@@ -19,26 +19,27 @@ class ListScreenViewmodel(
     val screenState = _screenState.asStateFlow()
 
     private var currentPage = 1
-    private lateinit var currentList: List<Hero>
+    private var currentList: List<Hero> = emptyList()
 
-    private lateinit var keyData: KeyData
+    private var keyData = KeyData("", "")
 
     init {
         viewModelScope.launch {
             keyData = loginService.getKeys()
-            currentList =
-                characterRepository.getCharacters(keyData = keyData, page = currentPage)
-            _screenState.value = ListScreenState.ShowCharacters(currentList)
+            characterRepository.getCharacters(keyData = keyData, page = currentPage).collect { list ->
+                currentList = list
+                _screenState.value = ListScreenState.ShowCharacters(list)
+            }
         }
     }
 
     fun loadNextPage() {
         viewModelScope.launch {
             currentPage++
-            val nextPage =
-                characterRepository.getCharacters(keyData = keyData, page = currentPage)
-            currentList = currentList + nextPage
-            _screenState.value = ListScreenState.ShowCharacters(currentList)
+            characterRepository.getCharacters(keyData = keyData, page = currentPage).collect { nextPage ->
+                currentList = currentList + nextPage
+                _screenState.value = ListScreenState.ShowCharacters(currentList)
+            }
         }
     }
 }

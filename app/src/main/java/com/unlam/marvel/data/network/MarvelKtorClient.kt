@@ -23,13 +23,6 @@ class MarvelKtorClient(
 
     override fun getCharacters(page: Int, apiPublicKey: String, apiPrivateKey: String) = flow<KtorResponse> {
         val offset = (page - 1) * LIST_SIZE_LIMIT
-        /*val response = client
-            .get(urlString = "https://gateway.marvel.com:443/v1/public/characters?orderBy=name&limit=$LIST_SIZE_LIMIT&offset=$offset&apikey=$apiPublicKey")
-            .body<KtorResponse>()
-        */
-        /*
-        generar timestamp y hash aquí.
-         */
         val timestamp = System.currentTimeMillis().toString()
         // val md5 = md5(timestamp + apiPrivateKey + apiPublickKey)
         val md5 = kotlinCryptoMd5(timestamp + apiPrivateKey + apiPublicKey)
