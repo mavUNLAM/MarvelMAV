@@ -70,6 +70,7 @@ dependencies {
     implementation(libs.media.kamel)
     implementation(libs.koin.android)
     implementation(kotlincrypto.hash.md)
+    implementation(libs.ktor.client.cio)
     // implementation(libs.koin.compose) koin-compose = {module="io.insert-koin:koin-compose", version.ref = "koin"}
     // implementation(libs.koin.compose.viewmodel) koin-compose-viewmodel = {module="io.insert-koin:koin-compose-viewmodel", version.ref = "koin"}
     // implementation(libs.koin.compose.viewmodel.navigation) koin-compose-viewmodel-navigation = {module="io.insert-koin:koin-compose-viewmodel-navigation", version.ref = "koin"}
